@@ -21,22 +21,27 @@ ApplicationWindow {
 	}
 	RowLayout {
     	Button {
-				Image {
-					id: red_Button
-        			anchors.fill: parent
-        			source: "./images/redButton.png"
-        			fillMode: Image.PreserveAspectFit
-					MouseArea {
-						anchors.fill: parent
-       					acceptedButtons: Qt.red_Button
-						onClicked: {
-							red_Button.source = "./images/shock.png"
-						}	
-				}
-    		}	
+			id: reddy
+			Image {
+				id: red_Button
+    			anchors.fill: parent
+       			source: "./images/redButton.png"
+    			fillMode: Image.PreserveAspectFit
+			}	
         text: "nuke"
-		Layout.minimumWidth: 300
-        Layout.minimumHeight: 300
+		Layout.minimumWidth: 1000
+        Layout.minimumHeight: 1000
     	}
+	}
+	MouseArea {
+		anchors.fill: parent
+		onPressed: {
+			red_Button.source = "./images/shocky.png"
+			reddy.text = "BOOOOOM"
+		}
+		onReleased: {
+			red_Button.source = "./images/redButton.png"
+			reddy.text = "nuke"
+		}
 	}
 }	
