@@ -16,7 +16,7 @@ ApplicationWindow {
 		height: screen.desktopAvailableHeight
         source: "./images/blue.jpeg"
         fillMode: Image.Stretch
-    }*/
+    }
 	/*Text {
 		text: "Devious activities in action 😈"
 		font.pixelSize: 20
@@ -50,6 +50,7 @@ ApplicationWindow {
 			}
 			onEntered: {
 				red_Button.source = "./images/shocky.png"
+				reddy.text = "DONT DO ITTT"
 			}
 			onExited: {
 				red_Button.source = "./images/redButton.png"
