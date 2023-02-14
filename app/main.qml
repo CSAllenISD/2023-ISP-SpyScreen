@@ -8,40 +8,90 @@ ApplicationWindow {
    	title: "Spy Screen"
     width: screen.desktopAvailableWidth 
     height: screen.desktopAvailableHeight	
-    Image {
+	background: Rectangle {
+		color: "#2596be"
+	}
+    /*Image {
 		width: screen.desktopAvailableWidth
 		height: screen.desktopAvailableHeight
-        source: "./images/frog.jpeg"
+        source: "./images/blue.jpeg"
         fillMode: Image.Stretch
-    }
-	Text {
-		anchors.centerIn: parent	
+    }*/
+	/*Text {
 		text: "Devious activities in action 😈"
 		font.pixelSize: 20
+	}*/
+	Rectangle {
+		id: rect
+		anchors.left: parent.horizontalCenter
+ 		anchors.top: parent.VerticalCenter
 	}
-	RowLayout {
-    	Button {
-			id: reddy
+    Button {
+		id: reddy
+		anchors.left: rect.left
+		anchors.leftMargin: -200
+ 		anchors.top: rect.top
+		anchors.topMargin: 200
+		width: 400
+		height: 400
+		Image {
+			id: red_Button
+    		anchors.fill: parent
+    		source: "./images/redButton.png"
+    		fillMode: Image.PreserveAspectFit
+		}	
+       	text: "nuke"
+		MouseArea {
+			anchors.fill: parent
+			hoverEnabled: true
+			onPressed: {
+				reddy.text = "BOOOOOM"
+				red_Button.source = "./images/explosion.png"
+			}
+			onEntered: {
+				red_Button.source = "./images/shocky.png"
+			}
+			onExited: {
+				red_Button.source = "./images/redButton.png"
+			}
+			onClicked: {
+				//Qt.openUrlExternally("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+				popup.open()
+			}
+			onReleased: {
+				red_Button.source = "./images/redButton.png"
+				reddy.text = "nuke"
+			}
+		}
+	}
+	Popup {
+     	id: popup
+       	width: screen.desktopAvailableWidth
+    	height: screen.desktopAvailableHeight
+		background: Rectangle {
+			color: "#2596be"
+		}	
+    	modal: true
+       	focus: true
+       	closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
+    	Label {
+    			text: qsTr("NOTHING TO SEE 
+HERE GET OUT")
+			color: "red"
+			font.pixelSize: 200
+		}
+		Button {
+			id: x_Button
 			Image {
-				id: red_Button
-    			anchors.fill: parent
-       			source: "./images/redButton.png"
-    			fillMode: Image.PreserveAspectFit
+				anchors.fill: parent
+				source: "./images/x.png"
+			}
+		}
+		MouseArea {
+			anchors.fill: parent
+			onPressed: {
+				popup.close()
 			}	
-        text: "nuke"
-		Layout.minimumWidth: 1000
-        Layout.minimumHeight: 1000
-    	}
-	}
-	MouseArea {
-		anchors.fill: parent
-		onPressed: {
-			red_Button.source = "./images/shocky.png"
-			reddy.text = "BOOOOOM"
 		}
-		onReleased: {
-			red_Button.source = "./images/redButton.png"
-			reddy.text = "nuke"
-		}
-	}
+    }
 }	
