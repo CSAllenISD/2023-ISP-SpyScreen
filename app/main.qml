@@ -25,6 +25,7 @@ ApplicationWindow {
 		id: rect
 		anchors.left: parent.horizontalCenter
  		anchors.top: parent.VerticalCenter
+		color: "transparent"
 	}
     Button {
 		id: reddy
@@ -54,6 +55,7 @@ ApplicationWindow {
 			}
 			onExited: {
 				red_Button.source = "./images/redButton.png"
+				reddy.text = "nuke"
 			}
 			onClicked: {
 				//Qt.openUrlExternally("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
