@@ -10,105 +10,34 @@ ApplicationWindow {
 	background: Rectangle {
 		color: "#2596be"
 	}
-    /*Image {
-		width: screen.desktopAvailableWidth
-		height: screen.desktopAvailableHeight
-        source: "./images/blue.jpeg"
-        fillMode: Image.Stretch
+    Image {
+        id: logo
+		width: parent.width / 4
+		height: parent.width / 4
+        x: parent.width / 20 - (parent.width / 50); y: parent.height / 6 - parent.height / 10
+        source: "./images/logo.png"
+        fillMode: Image.PreserveAspectFit
     }
-	/*Text {
-		text: "Devious activities in action 😈"
-		font.pixelSize: 20
-	}*/
-	Rectangle {
-		id: rect
-		anchors.left: parent.horizontalCenter
- 		anchors.top: parent.VerticalCenter
-		color: "transparent"
-	}
-    Button {
-		id: reddy
-		anchors.left: rect.left
-		anchors.leftMargin: -200
- 		anchors.top: rect.top
-		anchors.topMargin: 200
-		width: 400
-		height: 400
-		Image {
-			id: red_Button
-    		anchors.fill: parent
-    		source: "./images/redButton.png"
-    		fillMode: Image.PreserveAspectFit
-		}	
-       	text: "nuke"
-		MouseArea {
-			anchors.fill: parent
-			hoverEnabled: true
-			onPressed: {
-				reddy.text = "BOOOOOM"
-				red_Button.source = "./images/explosion.png"
-			}
-			onEntered: {
-				red_Button.source = "./images/shocky.png"
-				reddy.text = "DONT DO ITTT"
-			}
-			onExited: {
-				red_Button.source = "./images/redButton.png"
-				reddy.text = "nuke"
-			}
-			onClicked: {
-				//Qt.openUrlExternally("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
-				popup.open()
-			}
-			onReleased: {
-				red_Button.source = "./images/redButton.png"
-				reddy.text = "nuke"
-			}
-		}
-	}
-	Popup {
-     	id: popup
-       	width: screen.desktopAvailableWidth
-    	height: screen.desktopAvailableHeight
-		background: Rectangle {
-			color: "#2596be"
-		}	
-    	modal: true
-       	focus: true
-       	closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
-    	Label {
-    			text: qsTr("NOTHING TO SEE 
-HERE GET OUT")
-			color: "red"
-			font.pixelSize: 200
-		}
-		Button {
-			id: x_Button
-			Image {
-				anchors.fill: parent
-				source: "./images/x.png"
-			}
-		}
-		MouseArea {
-			anchors.fill: parent
-			onPressed: {
-				popup.close()
-			}	
-		}
+   Text {
+        text: "WELCOME TO <br>SPY SCREEN"
+        color: "white"
+        font.pointSize: (parent.width / 11)
+        horizontalAlignment: Text.AlignHCenter
+        font.family: "Acme"
+        x: parent.width / 2 - parent.width / 5; y: parent.height / 6 - parent.height / 10
     }
-	Rectangle {
-        id: button
+    Rectangle {
+        id: settings
 		color: "#0b5394"
         width: parent.width / 10
         height: parent.height / 15
-        x: parent.width / 6; y: parent.height - parent.height / 4 - parent.height / 30
+        x: parent.width / 3; y: parent.height - parent.height / 4 - parent.height / 30
         Button {
             width:parent.width
             height:parent.height
-            Loader { id: pageLoader }
             Text {
                 x: (parent.width / 6); y: (parent.height / 5) 
-                text: "BACK"
+                text: "SETTINGS"
                 font.pointSize: parent.width / 6
                 color: "white"
                 font.family: "Acme" 
@@ -117,9 +46,60 @@ HERE GET OUT")
 			    anchors.fill: parent
 			    hoverEnabled: true
 			    onPressed: {
-			    	pageLoader.source = "frontpage.qml"
+			    	pageLoader.source = "settings.qml"
 		    	}
             }
         }
     }
-}	
+    Rectangle {
+        id: button
+		color: "#0b5394"
+        width: parent.width / 10
+        height: parent.height / 15
+        x: settings.x + parent.width / 6; y: parent.height - parent.height / 4 - parent.height / 30
+        Button {
+            width:parent.width
+            height:parent.height
+            Loader { id: pageLoader }
+            Text {
+                x: (parent.width / 6); y: (parent.height / 5) 
+                text: "ACTIVITY"
+                font.pointSize: parent.width / 6
+                color: "white"
+                font.family: "Acme" 
+            }
+            MouseArea {
+			    anchors.fill: parent
+			    hoverEnabled: true
+			    onPressed: {
+			    	pageLoader.source = "activity.qml"
+		    	}
+            }
+        }
+    }
+    Rectangle {
+        id: about_us
+		color: "#0b5394"
+        width: parent.width / 10
+        height: parent.height / 15
+        x: settings.x + parent.width / 3; y: parent.height - parent.height / 4 - parent.height / 30
+        Button {
+            width:parent.width
+            height:parent.height
+            Text {
+                x: (parent.width / 6); y: (parent.height / 5) 
+                text: "ABOUT US"
+                font.pointSize: parent.width / 6
+                color: "white"
+                font.family: "Acme" 
+            }
+            MouseArea {
+			    anchors.fill: parent
+			    hoverEnabled: true
+			    onPressed: {
+			    	pageLoader.source = "aboutUs.qml"
+		    	}
+            }
+        }
+    }
+}
