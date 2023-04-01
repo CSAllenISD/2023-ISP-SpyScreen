@@ -1,4 +1,4 @@
-import QtQuick 2.5
+import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import QtQuick.Window
@@ -7,6 +7,7 @@ ApplicationWindow {
    	title: "Spy Screen"
     width: screen.desktopAvailableWidth 
     height: screen.desktopAvailableHeight	
+    Loader { id: pageLoader }
 	background: Rectangle {
 		color: "#2596be"
 	}
