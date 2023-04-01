@@ -33,7 +33,9 @@ ApplicationWindow {
         id: settings
         width: parent.width / 8
         height: parent.height / 15
-        x: parent.width / 5; y: parent.height - parent.height / 4 - parent.height / 30
+        anchors.right: activity.left
+        anchors.rightMargin : parent.width / 10
+        y: parent.height - parent.height / 4
         radius: parent.height / 60
         Rectangle {
             // Parent is button
@@ -65,8 +67,8 @@ ApplicationWindow {
         id: activity
 	    width: parent.width / 8
         height: parent.height / 15
-        // x is half the screen width - half of the button width
-        x: 3 * parent.width / 8; y: parent.height - parent.height / 4 - parent.height / 30
+        anchors.horizontalCenter: parent.horizontalCenter
+        y: parent.height - parent.height / 4
         radius: parent.height / 60
         Rectangle {
             // Parent is button
@@ -94,29 +96,38 @@ ApplicationWindow {
 		    }
         }
     }
-    Rectangle {
-        id: about_us
-		color: "#0b5394"
-        width: parent.width / 10
+    RoundButton {
+        id: about
+	    width: parent.width / 8
         height: parent.height / 15
-        x: settings.x + parent.width / 3; y: parent.height - parent.height / 4 - parent.height / 30
-        Button {
-            width:parent.width
-            height:parent.height
+        anchors.left: activity.right
+        anchors.leftMargin : parent.width / 10
+        y: parent.height - parent.height / 4
+        radius: parent.height / 60
+        Rectangle {
+            // Parent is button
+            width: parent.width
+            height: parent.height
+            border.color: "black"
+            color: "#0b5394"
+            radius: parent.height / 4
             Text {
-                x: (parent.width / 6); y: (parent.height / 5) 
-                text: "ABOUT US"
-                font.pointSize: parent.width / 6
+                // Parent is Rectangle, Text will be centered on button
+                text: "About Us"
+                font.pointSize: parent.width / 8
+                anchors.centerIn: parent
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
                 color: "white"
                 font.family: "Acme" 
             }
-            MouseArea {
-			    anchors.fill: parent
-			    hoverEnabled: true
-			    onPressed: {
-			    	pageLoader.source = "aboutUs.qml"
-		    	}
-            }
+        } 
+        MouseArea {
+			anchors.fill: parent
+			hoverEnabled: true
+			onPressed: {
+			    pageLoader.source = "aboutUs.qml"
+		    }
         }
     }
 }
