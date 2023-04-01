@@ -51,8 +51,7 @@ ApplicationWindow {
                 color: "white"
                 font.family: "Acme" 
             }
-        }
-        
+        } 
         MouseArea {
 			    anchors.fill: parent
 			    hoverEnabled: true
@@ -60,32 +59,38 @@ ApplicationWindow {
 			    	pageLoader.source = "settings.qml"
 		    	}
         }
-        
     }
-    Rectangle {
-        id: button
-		color: "#0b5394"
-        width: parent.width / 10
+    RoundButton {
+        id: activity
+	    width: parent.width / 8
         height: parent.height / 15
-        x: settings.x + parent.width / 6; y: parent.height - parent.height / 4 - parent.height / 30
-        Button {
-            width:parent.width
-            height:parent.height
-            Loader { id: pageLoader }
+        // x is half the screen width - half of the button width
+        x: 3 * parent.width / 8; y: parent.height - parent.height / 4 - parent.height / 30
+        radius: parent.height / 60
+        Rectangle {
+            // Parent is button
+            width: parent.width
+            height: parent.height
+            border.color: "black"
+            color: "#0b5394"
+            radius: parent.height / 4
             Text {
-                x: (parent.width / 6); y: (parent.height / 5) 
-                text: "ACTIVITY"
-                font.pointSize: parent.width / 6
+                // Parent is Rectangle, Text will be centered on button
+                text: "Activity"
+                font.pointSize: parent.width / 8
+                anchors.centerIn: parent
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
                 color: "white"
                 font.family: "Acme" 
             }
-            MouseArea {
-			    anchors.fill: parent
-			    hoverEnabled: true
-			    onPressed: {
-			    	pageLoader.source = "activity.qml"
-		    	}
-            }
+        } 
+        MouseArea {
+			anchors.fill: parent
+			hoverEnabled: true
+			onPressed: {
+			    pageLoader.source = "activity.qml"
+		    }
         }
     }
     Rectangle {
