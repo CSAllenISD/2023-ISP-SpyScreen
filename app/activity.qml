@@ -10,37 +10,22 @@ ApplicationWindow {
 	background: Rectangle {
 		color: "#2596be"
 	}
-    /*Image {
-		width: screen.desktopAvailableWidth
-		height: screen.desktopAvailableHeight
-        source: "./images/blue.jpeg"
-        fillMode: Image.Stretch
-    }
-	/*Text {
-		text: "Devious activities in action 😈"
-		font.pixelSize: 20
-	}*/
-	Rectangle {
-		id: rect
-		anchors.left: parent.horizontalCenter
- 		anchors.top: parent.VerticalCenter
-		color: "transparent"
-	}
     Button {
 		id: reddy
-		anchors.left: rect.left
+		anchors.left: parent.horizontalCenter
+ 		anchors.top: parent.VerticalCenter
 		anchors.leftMargin: -200
- 		anchors.top: rect.top
 		anchors.topMargin: 200
 		width: 400
 		height: 400
+		text: "nuke"
 		Image {
-			id: red_Button
-    		anchors.fill: parent
-    		source: "./images/redButton.png"
-    		fillMode: Image.PreserveAspectFit
+				id: red_Button
+    			anchors.fill: parent
+    			source: "./images/redButton.png"
+    			fillMode: Image.PreserveAspectFit
 		}	
-       	text: "nuke"
+		
 		MouseArea {
 			anchors.fill: parent
 			hoverEnabled: true
@@ -96,30 +81,41 @@ HERE GET OUT")
 			}	
 		}
     }
-	Rectangle {
-        id: button
-		color: "#0b5394"
-        width: parent.width / 10
+	RoundButton {
+        // Parent is screen
+        id: settings
+        width: parent.width / 8
         height: parent.height / 15
-        x: parent.width / 6; y: parent.height - parent.height / 4 - parent.height / 30
-        Button {
-            width:parent.width
-            height:parent.height
-            Loader { id: pageLoader }
+        anchors.left : parent.left
+        anchors.leftMargin : parent.width / 10
+		anchors.bottom : parent.bottom
+        anchors.bottomMargin : parent.height / 10
+        y: parent.height - parent.height / 4
+        radius: parent.height / 60
+        Rectangle {
+            // Parent is button
+            width: parent.width
+            height: parent.height
+            border.color: "black"
+            color: "#0b5394"
+            radius: parent.height / 4
             Text {
-                x: (parent.width / 6); y: (parent.height / 5) 
-                text: "BACK"
-                font.pointSize: parent.width / 6
+                // Parent is Rectangle, Text will be centered on button
+                text: "Back"
+                font.pointSize: parent.width / 8
+                anchors.centerIn: parent
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
                 color: "white"
                 font.family: "Acme" 
             }
-            MouseArea {
+        } 
+        MouseArea {
 			    anchors.fill: parent
 			    hoverEnabled: true
 			    onPressed: {
 			    	pageLoader.source = "main.qml"
 		    	}
-            }
         }
     }
 }	
