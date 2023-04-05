@@ -8,8 +8,7 @@ Item {
     visible: true
 
     Rectangle {
-        width: parent.width
-        height: parent.height
+        anchors.fill: parent
         color: "#2596be"  
 
         Image {
@@ -22,7 +21,7 @@ Item {
         }
 
         Text {
-            text: "WELCOME TO <br>SPY SCREEN"
+            text: qsTr("WELCOME TO <br>SPY SCREEN")
             color: "white"
             font.pointSize: (parent.width / 14)
             horizontalAlignment: Text.AlignHCenter
@@ -32,9 +31,9 @@ Item {
 
         ListModel {
             id: listModel
-            ListElement {name: "About"; page: "aboutUs.qml"}
-            ListElement {name: "Activity"; page: "activity.qml"}
-            ListElement {name: "Settings"; page: "settings.qml"}
+            ListElement {name: qsTr("About"); page: "aboutUs.qml"}
+            ListElement {name: qsTr("Activity"); page: "activity.qml"}
+            ListElement {name: qsTr("Settings"); page: "settings.qml"}
         }
 
         Component {

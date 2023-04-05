@@ -66,8 +66,7 @@ Item {
 			focus: true
 			closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
 			Label {
-					text: qsTr("NOTHING TO SEE 
-	HERE GET OUT")
+					text: qsTr("NOTHING TO SEE <br>HERE GET OUT")
 				color: "red"
 				font.pixelSize: 200
 			}
@@ -83,29 +82,6 @@ Item {
 			}
     	}
 
-		RoundButton {
-            width: parent.width / 8
-            height: parent.height / 15
-            anchors.left: parent.left
-            anchors.leftMargin: parent.width / 10
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: parent.height / 10
-            radius: parent.height / 60
-
-            onClicked: stackView.pop()
-            Rectangle {
-                anchors.fill: parent
-                border.color: "black"
-                color: "#0b5394"
-                radius: parent.radius
-                Text {
-                    text: "Back"
-                    font.pointSize: parent.width / 8
-                    anchors.centerIn: parent
-                    color: "white"
-                    font.family: "Acme" 
-                }
-            }
-        }
+		BackButton {}
 	}
 }	

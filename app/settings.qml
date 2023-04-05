@@ -9,29 +9,51 @@ Item {
         anchors.fill: parent
         color: "#2596be"
 
-        RoundButton {
-            width: parent.width / 8
-            height: parent.height / 15
-            anchors.left: parent.left
-            anchors.leftMargin: parent.width / 10
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: parent.height / 10
-            radius: parent.height / 60
+        Rectangle {
+            height: parent.height / 2
+            width: height
+            anchors.centerIn: parent
+            border.color: "black"
+            color: "lightgray"
 
-            onClicked: stackView.pop()
-            Rectangle {
+            ColumnLayout {
                 anchors.fill: parent
-                border.color: "black"
-                color: "#0b5394"
-                radius: parent.radius
-                Text {
-                    text: "Back"
-                    font.pointSize: parent.width / 8
-                    anchors.centerIn: parent
-                    color: "white"
-                    font.family: "Acme" 
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.top: parent.top
+                spacing: parent.height / 20
+                Rectangle {
+                    Layout.alignment: Qt.AlignTop
+                    color: "green"
+                    border.color: "black"
+                    Layout.preferredWidth: parent.width
+                    Layout.preferredHeight: parent.height / 10
+                    Text {
+                        anchors.left: parent.left
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.leftMargin: parent.width / 20
+                        text: qsTr("Dark Mode")
+                    }
+                    Switch {
+                        anchors.right: parent.right
+                        anchors.rightMargin: parent.width / 20
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                }
+                Rectangle {
+                    width: parent.width
+                    height: parent.height / 10
+                    Text {
+                        anchors.right: parent.left
+                        text: qsTr("Button Sounds")
+                    }
+                    Switch {
+                        anchors.left: parent.right
+                    }
                 }
             }
-        }
+
+        }        
+
+        BackButton {}
     }
 }
