@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import QtQuick.Window
-
+import QtMultimedia
 Item {
     id: home
     visible: true
@@ -33,9 +33,25 @@ Item {
             id: listModel
             ListElement {name: qsTr("About"); page: "aboutUs.qml"}
             ListElement {name: qsTr("Activity"); page: "activity.qml"}
-            ListElement {name: qsTr("Settings"); page: "settings.qml"}
+            ListElement {name: qsTr("Settings"); page: "camera.qml"}
         }
-
+        Rectangle {
+			width: 640
+			height: 360
+			MediaPlayer {
+				id:player
+				source: "file://../images/ethanfrickingdies.mp4"
+			}
+			VideoOutput {
+				anchors.fill: parent
+				focus : visible // to receive focus and capture key events when visible
+			}
+            MouseArea {
+                id: playArea
+                anchors.fill: parent
+                onPressed: player.play();
+            }
+		}
         Component {
             id: buttonDelegate
             Item {

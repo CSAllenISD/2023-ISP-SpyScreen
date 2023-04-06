@@ -2,13 +2,13 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import QtQuick.Window
+import QtMultimedia
 Item {
 	id: activity
 
 	Rectangle {
 		anchors.fill: parent
 		color: "#2596be"
-
 		RoundButton {
 			id: redButton
 			anchors.centerIn: parent
