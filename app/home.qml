@@ -36,22 +36,36 @@ Item {
             ListElement {name: qsTr("Settings"); page: "camera.qml"}
         }
         Rectangle {
-			width: 640
-			height: 360
-			MediaPlayer {
-				id:player
-				source: "file://../images/ethanfrickingdies.mp4"
-			}
-			VideoOutput {
-				anchors.fill: parent
-				focus : visible // to receive focus and capture key events when visible
-			}
-            MouseArea {
-                id: playArea
-                anchors.fill: parent
-                onPressed: player.play();
+            id: rect
+            width: 400
+            height: 350
+            MediaDevices {
+                id: mediaDevices
             }
-		}
+            CaptureSession {
+                camera: Camera {
+                    id: camera
+                    cameraDevice: mediaDevices.defaultVideoInput
+                }
+                videoOutput: videoOutput
+            }
+            VideoOutput {
+                id: videoOutput
+                fillMode: Stretch
+                anchors.fill: parent
+            }
+            MouseArea {
+                anchors.fill: parent
+                //onPressed: mediaplayer.play();
+                onPressed: camera.start();
+            }
+            // MediaPlayer {
+            //     id: mediaplayer
+            //     source: "ethanfrickingdies.mp4"
+            //     audioOutput: AudioOutput {}
+            //     videoOutput: videoOutput
+            // }
+        }
         Component {
             id: buttonDelegate
             Item {
