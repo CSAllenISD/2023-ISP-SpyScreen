@@ -35,10 +35,9 @@ Item {
             ListElement {name: qsTr("Activity"); page: "activity.qml"}
             ListElement {name: qsTr("Settings"); page: "camera.qml"}
         }
-        Rectangle {
-            id: rect
-            width: 400
-            height: 350
+        Item {
+            width: 640
+            height: 360
             MediaDevices {
                 id: mediaDevices
             }
@@ -51,8 +50,9 @@ Item {
             }
             VideoOutput {
                 id: videoOutput
-                fillMode: Stretch
+                fillMode: PreserveAspectFit
                 anchors.fill: parent
+                visible: true
             }
             MouseArea {
                 anchors.fill: parent
