@@ -11,7 +11,7 @@ ApplicationWindow {
     height: screen.desktopAvailableHeight
     MediaPlayer {
         id: mediaplayer
-        source: "ethanfrickingdies.mp4"
+        source: "file://ethanfrickingdies.mp4"
         videoOutput: ethan
         audioOutput: AudioOutput {}
     }

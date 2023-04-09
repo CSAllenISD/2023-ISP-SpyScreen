@@ -1,3 +1,4 @@
+# pip3 install: opencv-python, dlib, and face_recognition
 import face_recognition
 import os
 import sys
@@ -40,7 +41,7 @@ class FaceRecognition:
 
     #Runs video camera, finds faces
     def run_recognition(self):
-        video_capture = cv2.VideoCapture(0)
+        video_capture = cv2.VideoCapture(1)
 
         if not video_capture.isOpened():
             sys.exit('Video source not found...')
@@ -50,7 +51,6 @@ class FaceRecognition:
 
             if self.process_current_frame:
                 small_frame = cv2.resize(frame, (0, 0), fx=0.25, fy=0.25)
-
                 #change colors from BGR to RGB
                 rgb_small_frame = small_frame[:, :, ::-1]
 

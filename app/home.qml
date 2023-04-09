@@ -33,7 +33,7 @@ Item {
             id: listModel
             ListElement {name: qsTr("About"); page: "aboutUs.qml"}
             ListElement {name: qsTr("Activity"); page: "activity.qml"}
-            ListElement {name: qsTr("Settings"); page: "camera.qml"}
+            ListElement {name: qsTr("Settings"); page: "settings.qml"}
         }
         // Item {
         //     width: 640
