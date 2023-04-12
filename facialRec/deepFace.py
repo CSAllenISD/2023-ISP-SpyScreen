@@ -14,10 +14,10 @@ cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
 counter = 0
 face_match = False
-reference_img = cv2.imread("faces/drew.jpg")
-#name = "Drew"
+file = "faces/drew.jpg"
+reference_img = cv2.imread(file)
 regex_pattern = '[\w-]+?(?=\.)'
-result = re.search(regex_pattern, "faces/drew.jpg")
+result = re.search(regex_pattern, file)
 name = result.group().capitalize()
 
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
@@ -39,7 +39,7 @@ while True:
     
     if ret: 
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) # convert to grayscale
-        faces = face_cascade.detectMultiScale(gray, scaleFactor=1.3, minNeighbors=100)
+        faces = face_cascade.detectMultiScale(gray, scaleFactor=1.5, minNeighbors=5)
         if counter % 30 == 0:
             try:
                 threading.Thread(target=check_face, args=(frame.copy(),)).start()
