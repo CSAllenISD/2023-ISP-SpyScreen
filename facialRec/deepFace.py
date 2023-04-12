@@ -1,5 +1,8 @@
+#pip install deepface, opencv-python, opencv-contrib-python, opencv-python-headless, pip install opencv-contrib-python-headless
 import threading
 import cv2
+import os
+import re
 import numpy as np
 from deepface import DeepFace
 from deepface.commons import functions
@@ -12,7 +15,10 @@ cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 counter = 0
 face_match = False
 reference_img = cv2.imread("faces/drew.jpg")
-name = "Drew"
+#name = "Drew"
+regex_pattern = '[\w-]+?(?=\.)'
+result = re.search(regex_pattern, "faces/drew.jpg")
+name = result.group().capitalize()
 
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 # gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
