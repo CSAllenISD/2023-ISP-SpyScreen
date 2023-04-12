@@ -16,7 +16,7 @@ Item {
             width: parent.width / 4
             height: parent.width / 4
             x: parent.width / 50; y: parent.height / 50
-            source: "./images/logo.png"
+            source: "../images/logo.png"
             fillMode: Image.PreserveAspectFit
         }
 

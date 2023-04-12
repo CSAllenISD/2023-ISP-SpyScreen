@@ -23,7 +23,7 @@ Item {
 				Image {
 					id: redButtonImage
 					anchors.fill: parent
-					source: "./images/redButton.png"
+					source: "../images/redButton.png"
 					fillMode: Image.PreserveAspectFit
 				}
 			}
@@ -34,14 +34,14 @@ Item {
 				hoverEnabled: true
 				onPressed: {
 					redButton.text = "BOOOOOM"
-					redButtonImage.source = "./images/explosion.png"
+					redButtonImage.source = "../images/explosion.png"
 				}
 				onEntered: {
-					redButtonImage.source = "./images/shocky.png"
+					redButtonImage.source = "../images/shocky.png"
 					redButton.text = "DONT DO ITTT"
 				}
 				onExited: {
-					redButtonImage.source = "./images/redButton.png"
+					redButtonImage.source = "../images/redButton.png"
 					redButton.text = "nuke"
 				}
 				onClicked: {
@@ -49,7 +49,7 @@ Item {
 					popup.open()
 				}
 				onReleased: {
-					redButtonImage.source = "./images/redButton.png"
+					redButtonImage.source = "../images/redButton.png"
 					redButton.text = "nuke"
 				}
 			}
@@ -76,7 +76,7 @@ Item {
 				height: 30
 				Image {
 					anchors.fill: parent
-					source: "./images/x.png"
+					source: "../images/x.png"
 				}
 				onClicked: popup.close()
 			}
