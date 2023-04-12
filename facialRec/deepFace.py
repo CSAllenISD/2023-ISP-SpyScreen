@@ -1,4 +1,4 @@
-#pip install deepface, opencv-python, opencv-contrib-python, opencv-python-headless, pip install opencv-contrib-python-headless
+# pip install -r requirements.txt
 import threading
 import cv2
 import os
