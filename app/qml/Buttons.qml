@@ -24,7 +24,7 @@ Item {
             Text {
                 id: text
                 text: text
-                font.pointSize: parent.width / 8
+                font.pixelSize: parent.width / 8
                 anchors.centerIn: parent
                 color: "white"
                 font.family: "Acme" 

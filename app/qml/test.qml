@@ -1,8 +1,38 @@
-import QtQuick
-import QtQuick.Controls
-import QtQuick.Layouts
-import QtQuick.Window
-import QtMultimedia
+import QtQuick 2.15
+import QtQuick.Window 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Dialogs 1.3
+import QtQml.Models 2.15
+import QtQuick.Layouts 2.15
+import QtQuick.Controls.Styles 1.4
+import Qt.labs.settings 1.1
+import QtQuick.LocalStorage 2.0
+import QtQuick.Window 2.2
+import QtQuick.Controls 2.4
+import QtQuick.Controls.Material 2.4
+import QtQuick.Controls.Universal 2.4
+import QtQuick.Controls.impl 2.4
+import QtQuick.Templates 2.4
+import QtQuick.Templates.Private 2.4
+
+import QtQuick 2.0
+import QtQuick.Controls 2.0
+import QtQuick.Layouts 1.0
+import QtQuick.Window 2.0
+import QtQuick.Dialogs 1.3
+import QtQuick.Controls.Styles 1.4
+import Qt.labs.settings 1.1
+import QtQuick.LocalStorage 2.0
+import QtQuick.Controls.Material 2.4
+import QtQuick.Controls.Universal 2.4
+import QtQuick.Controls.impl 2.4
+import QtQuick.Templates 2.4
+import QtQuick.Templates.Private 2.4
+
+import Qt.core 4.0
+//import QtQuick.Dialogs 1.3
+import QtQml.Models 2.15
+//import QtCore 4.0
 Item {
     id: home
     visible: true
@@ -19,11 +49,20 @@ Item {
             source: "../images/logo.png"
             fillMode: Image.PreserveAspectFit
         }
+        Button {
+            id: pythonButton
+            text: "Start Python Script"
+            onClicked: {
+                var pythonScript = "/path/to/your/script.py" // replace with the path to your Python script
+                var process = Qt.createQProcess(null)
+                process.start("/usr/bin/python", [pythonScript])
+            }
+        }
 
         Text {
             text: qsTr("WELCOME TO <br>SPY SCREEN")
             color: "white"
-            font.pixelSize: (parent.width / 14)
+            font.pointSize: (parent.width / 14)
             horizontalAlignment: Text.AlignHCenter
             font.family: "Acme"
             x: parent.width / 25 + parent.width / 4; y: parent.height / 20
@@ -35,7 +74,7 @@ Item {
             ListElement {name: qsTr("Activity"); page: "activity.qml"}
             ListElement {name: qsTr("Settings"); page: "settings.qml"}
         }
-
+        
         Component {
             id: buttonDelegate
             Item {
@@ -52,7 +91,7 @@ Item {
                         radius: parent.radius
                         Text {
                             color: "white"
-                            font.pixelSize: parent.width / 8
+                            font.pointSize: parent.width / 8
                             text: name
                             anchors.centerIn: parent
                         }
