@@ -7,7 +7,7 @@ import numpy as np
 from deepface import DeepFace
 from deepface.commons import functions
 
-cap = cv2.VideoCapture(2, cv2.CAP_DSHOW)
+cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
@@ -67,7 +67,7 @@ while True:
                 cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 0, 255), 2)
                 cv2.putText(frame, "UNKNOWN", (x, y + h + 20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1)
                     
-        cv2.imshow("video", frame)
+        cv2.imshow("Face Recognition", frame)
         
     key = cv2.waitKey(1)
     if key == 27:
