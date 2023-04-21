@@ -35,37 +35,7 @@ Item {
             ListElement {name: qsTr("Activity"); page: "activity.qml"}
             ListElement {name: qsTr("Settings"); page: "settings.qml"}
         }
-        // Item {
-        //     width: 640
-        //     height: 360
-        //     MediaDevices {
-        //         id: mediaDevices
-        //     }
-        //     CaptureSession {
-        //         camera: Camera {
-        //             id: camera
-        //             cameraDevice: mediaDevices.defaultVideoInput
-        //         }
-        //         videoOutput: videoOutput
-        //     }
-        //     VideoOutput {
-        //         id: videoOutput
-        //         fillMode: PreserveAspectFit
-        //         anchors.fill: parent
-        //         visible: true
-        //     }
-        //     MouseArea {
-        //         anchors.fill: parent
-        //         //onPressed: mediaplayer.play();
-        //         onPressed: camera.start();
-        //     }
-        //     // MediaPlayer {
-        //     //     id: mediaplayer
-        //     //     source: "ethanfrickingdies.mp4"
-        //     //     audioOutput: AudioOutput {}
-        //     //     videoOutput: videoOutput
-        //     // }
-        // }
+
         Component {
             id: buttonDelegate
             Item {
