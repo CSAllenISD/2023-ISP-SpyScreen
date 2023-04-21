@@ -73,5 +73,10 @@ Item {
             cellHeight: parent.height / 12
             delegate: buttonDelegate
         }
+
+        Buttons.BackButton {
+            label: qsTr("Log Out")
+        }
+
     }
 }

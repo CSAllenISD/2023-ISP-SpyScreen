@@ -9,6 +9,8 @@ Item {
         anchors.fill: parent
         color: "#2596be"
 
-        BackButton{}
+        Buttons.BackButton{
+            label: qsTr("Back")
+        }
     }
 }

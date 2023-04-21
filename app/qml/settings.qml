@@ -54,6 +54,8 @@ Item {
 
         }        
 
-        BackButton {}
+        Buttons.BackButton {
+            label: qsTr("Back")
+        }
     }
 }

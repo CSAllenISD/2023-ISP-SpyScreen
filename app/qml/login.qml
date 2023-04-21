@@ -3,7 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import QtQuick.Window
 import QtMultimedia
-from PyQt5.QtCore import QProcess
+//from PyQt5.QtCore import QProcess
 
 Item {
     id: home
@@ -16,7 +16,7 @@ Item {
         color: "#2596be"
         width: parent.width
         height: parent.height
-        def take_photo():
+        /*def take_photo():
             process = QProcess()
             process.start('python3', ['../facialRec/takePhoto.py'])
             process.waitForFinished()
@@ -24,6 +24,7 @@ Item {
             text: "Take Photo"
             onClicked: take_photo()
         }
+        */
 
         Image {
             id: logo
@@ -42,35 +43,28 @@ Item {
             font.family: "Acme"
             x: parent.width / 25 + parent.width / 4; y: parent.height / 20
         }
+        
 
-        Text {
-            text: qsTr("Please Log In")
-            color: "white"
-            font.pixelSize: parent.width / 42
-            horizontalAlignment: Text.AlignHCenter
-            font.family: "Acme"
-            anchors.centerIn: parent
-        }
-
+        
         Rectangle {
             id: loginBox
             anchors.fill: parent
             anchors.bottom: parent.bottom
             anchors.bottomMargin: parent.height / 10
             anchors.topMargin: parent.height * 3 / 5
-            anchors.rightMargin: parent.width / 4
-            anchors.leftMargin: parent.width / 4
+            anchors.rightMargin: parent.width / 3
+            anchors.leftMargin: parent.width / 3
             color: "transparent"
 
             Rectangle {
-                id: regesterButton
+                id: registerButton
                 anchors.left: parent.left
                 width: parent.width / 3
                 height: parent.height
                 color: "transparent"
 
                 RoundButton {
-                    height: parent.height / 2
+                    height: parent.height / 3
                     width: parent.width - parent.width / 6
                     anchors.centerIn: parent
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -82,12 +76,12 @@ Item {
                         radius: parent.radius
                         Text {
                             color: "white"
-                            font.pixelSize: parent.width / 8
+                            font.pixelSize: parent.width / 6
                             text: qsTr("Register")
                             anchors.centerIn: parent
                         }
                     }
-                    onClicked: stackView.push( "settings.qml" )
+                    onClicked: stackView.push( "home.qml" )
                 }
             }
             Rectangle {
@@ -97,18 +91,39 @@ Item {
                 height: parent.height
                 color: "transparent"
 
-                TextField {
-                    width: parent.width * 5 / 6
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    height: 30
-                    font.pixelSize: 15
-                    color: "black"
-                    placeholderText: qsTr("Username")
-                    background: Rectangle {
-                        anchors.fill: parent
-                        color: "white"
-                        border.color: "gray"
+                Column {
+                    anchors.centerIn: parent
+                    width: parent.width
+                    height: parent.height / 2 
+                    spacing: parent. height / 6
+                    TextField {
+                        width: parent.width * 5 / 6
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        height: parent.height / 3
+                        font.pixelSize: parent.height / 6
+                        color: "black"
+                        placeholderText: qsTr("Username")
+
+                        background: Rectangle {
+                            anchors.fill: parent
+                            color: "white"
+                            border.color: "gray"
+                        }
                     }
+                    TextField {
+                        width: parent.width * 5 / 6
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        height: parent.height / 3
+                        font.pixelSize: parent.height / 6
+                        color: "black"
+                        placeholderText: qsTr("Password")
+
+                        background: Rectangle {
+                            anchors.fill: parent
+                            color: "white"
+                            border.color: "gray"
+                        }
+                    } 
                 }
             }
         }
