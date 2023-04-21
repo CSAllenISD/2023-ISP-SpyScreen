@@ -14,7 +14,7 @@ cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
 counter = 0
 face_match = False
-file = "faces/austin.jpg"
+file = "faces/drew.jpg"
 reference_img = cv2.imread(file)
 regex_pattern = '[\w-]+?(?=\.)'
 result = re.search(regex_pattern, file)
