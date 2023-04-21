@@ -29,14 +29,7 @@ Item {
             x: parent.width / 25 + parent.width / 4; y: parent.height / 20
         }
         
-        Text {
-            text: qsTr("Please Log In")
-            color: "white"
-            font.pointSize: (parent.width / 42)
-            horizontalAlignment: Text.AlignHCenter
-            font.family: "Acme"
-            anchors.centerIn: parent
-        }
+
         
         Rectangle {
             id: loginBox
@@ -44,19 +37,19 @@ Item {
             anchors.bottom: parent.bottom
             anchors.bottomMargin: parent.height / 10
             anchors.topMargin: parent.height * 3 / 5
-            anchors.rightMargin: parent.width / 4
-            anchors.leftMargin: parent.width / 4
+            anchors.rightMargin: parent.width / 3
+            anchors.leftMargin: parent.width / 3
             color: "transparent"
 
             Rectangle {
-                id: regesterButton
+                id: registerButton
                 anchors.left: parent.left
                 width: parent.width / 3
                 height: parent.height
                 color: "transparent"
 
                 RoundButton {
-                    height: parent.height / 2
+                    height: parent.height / 3
                     width: parent.width - parent.width / 6
                     anchors.centerIn: parent
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -68,12 +61,12 @@ Item {
                         radius: parent.radius
                         Text {
                             color: "white"
-                            font.pointSize: parent.width / 8
+                            font.pointSize: parent.width / 6
                             text: qsTr("Register")
                             anchors.centerIn: parent
                         }
                     }
-                    onClicked: stackView.push( "settings.qml" )
+                    onClicked: stackView.push( "home.qml" )
                 }
             }
             Rectangle {
@@ -83,21 +76,40 @@ Item {
                 height: parent.height
                 color: "transparent"
 
-                
-                TextField {
-                    width: parent.width * 5 / 6
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    height: 30
-                    font.pointSize: 15
-                    color: "black"
-                    placeholderText: qsTr("Username")
+                Column {
+                    anchors.centerIn: parent
+                    width: parent.width
+                    height: parent.height / 2 
+                    spacing: parent. height / 6
+                    TextField {
+                        width: parent.width * 5 / 6
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        height: parent.height / 3
+                        font.pointSize: parent.height / 6
+                        color: "black"
+                        placeholderText: qsTr("Username")
 
-                    background: Rectangle {
-                        anchors.fill: parent
-                        color: "white"
-                        border.color: "gray"
+                        background: Rectangle {
+                            anchors.fill: parent
+                            color: "white"
+                            border.color: "gray"
+                        }
                     }
-                }   
+                    TextField {
+                        width: parent.width * 5 / 6
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        height: parent.height / 3
+                        font.pointSize: parent.height / 6
+                        color: "black"
+                        placeholderText: qsTr("Password")
+
+                        background: Rectangle {
+                            anchors.fill: parent
+                            color: "white"
+                            border.color: "gray"
+                        }
+                    }      
+                }  
             }
         }
     }
