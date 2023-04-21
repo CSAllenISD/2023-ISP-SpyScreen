@@ -67,7 +67,7 @@ while True:
                 cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 0, 255), 2)
                 cv2.putText(frame, "UNKNOWN", (x, y + h + 20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1)
                     
-        cv2.imshow("video", frame)
+        cv2.imshow("Face Recognition", frame)
         
     key = cv2.waitKey(1)
     if key == 27:
