@@ -7,14 +7,14 @@ import numpy as np
 from deepface import DeepFace
 from deepface.commons import functions
 
-cap = cv2.VideoCapture(2, cv2.CAP_DSHOW)
+cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
 counter = 0
 face_match = False
-file = "faces/drew.jpg"
+file = "faces/austin.jpg"
 reference_img = cv2.imread(file)
 regex_pattern = '[\w-]+?(?=\.)'
 result = re.search(regex_pattern, file)
