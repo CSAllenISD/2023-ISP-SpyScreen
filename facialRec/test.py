@@ -2,7 +2,9 @@ import cv2
 
 cap = cv2.VideoCapture(0)
 
+# Keep capturing frames from the camera until user presses 'q' key
 while True:
+    # Read a frame from the camera
     ret, frame = cap.read()
     
     if not ret:
