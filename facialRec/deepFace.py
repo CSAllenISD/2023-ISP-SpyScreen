@@ -7,14 +7,14 @@ import numpy as np
 from deepface import DeepFace
 from deepface.commons import functions
 
-cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+cap = cv2.VideoCapture(2, cv2.CAP_DSHOW)
 
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
 counter = 0
 face_match = False
-file = "faces/drew.jpg"
+file = "faces/user.png"
 reference_img = cv2.imread(file)
 regex_pattern = '[\w-]+?(?=\.)'
 result = re.search(regex_pattern, file)
@@ -55,7 +55,7 @@ while True:
         # detect faces
         rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB) # convert BGR to RGB
         faces = functions.extract_faces(rgb_frame.copy(), enforce_detection=False)
-
+        
         if len(faces) > 0:
             face = faces[0]
             box = face[1]
