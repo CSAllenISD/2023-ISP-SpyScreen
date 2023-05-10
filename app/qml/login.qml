@@ -3,7 +3,6 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import QtQuick.Window
 import QtMultimedia
-import Qt.labs.settings
 
 Item {
     id: home
