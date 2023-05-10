@@ -3,7 +3,6 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import QtQuick.Window
 import QtMultimedia
-//from PyQt5.QtCore import QProcess
 
 Item {
     id: home
@@ -16,15 +15,6 @@ Item {
         color: "#2596be"
         width: parent.width
         height: parent.height
-        /*def take_photo():
-            process = QProcess()
-            process.start('python3', ['../facialRec/takePhoto.py'])
-            process.waitForFinished()
-        Button {
-            text: "Take Photo"
-            onClicked: take_photo()
-        }
-        */
 
         Image {
             id: logo
@@ -43,7 +33,6 @@ Item {
             font.family: "Acme"
             x: parent.width / 25 + parent.width / 4; y: parent.height / 20
         }
-        
 
         
         Rectangle {
@@ -64,8 +53,8 @@ Item {
                 color: "transparent"
 
                 RoundButton {
-                    height: parent.height / 3
-                    width: parent.width - parent.width / 6
+                    height: parent.height / 2
+                    width: parent.width - parent.width / 10
                     anchors.centerIn: parent
                     anchors.horizontalCenter: parent.horizontalCenter
                     radius: parent.width / 10
@@ -77,7 +66,7 @@ Item {
                         Text {
                             color: "white"
                             font.pixelSize: parent.width / 6
-                            text: qsTr("Register")
+                            text: qsTr("Take Photo")
                             anchors.centerIn: parent
                         }
                     }
@@ -90,40 +79,20 @@ Item {
                 width: parent.width * 2 / 3
                 height: parent.height
                 color: "transparent"
+                TextField {
+                    width: parent.width * 5 / 6
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter 
+                    height: parent.height / 5
+                    font.pixelSize: parent.height / 6
+                    color: "black"
+                    placeholderText: qsTr("Name")
 
-                Column {
-                    anchors.centerIn: parent
-                    width: parent.width
-                    height: parent.height / 2 
-                    spacing: parent. height / 6
-                    TextField {
-                        width: parent.width * 5 / 6
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        height: parent.height / 3
-                        font.pixelSize: parent.height / 6
-                        color: "black"
-                        placeholderText: qsTr("Username")
-
-                        background: Rectangle {
-                            anchors.fill: parent
-                            color: "white"
-                            border.color: "gray"
-                        }
+                    background: Rectangle {
+                        anchors.fill: parent
+                        color: "white"
+                        border.color: "gray"
                     }
-                    TextField {
-                        width: parent.width * 5 / 6
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        height: parent.height / 3
-                        font.pixelSize: parent.height / 6
-                        color: "black"
-                        placeholderText: qsTr("Password")
-
-                        background: Rectangle {
-                            anchors.fill: parent
-                            color: "white"
-                            border.color: "gray"
-                        }
-                    } 
                 }
             }
         }

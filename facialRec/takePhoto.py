@@ -4,6 +4,7 @@ import os
 
 #setup lol
 detector = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+<<<<<<< HEAD
 cap = cv2.VideoCapture(1)
 counter = 0
 countdown = 5
@@ -25,6 +26,23 @@ while True:
             cv2.imwrite(os.path.join("./facialRec/faces", "user.png"), frame)
             break
     #displays video
+=======
+cap = cv2.VideoCapture(0)
+
+while True:
+    ret, frame = cap.read()
+    
+    if not ret or frame is None:
+        continue
+    
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    detected_faces = detector.detectMultiScale(gray, scaleFactor=1.2, minNeighbors=5)
+
+    if len(detected_faces) == 1:
+        cv2.imwrite(os.path.join("./facialRec/faces", "user.jpg"), frame)
+        break
+
+>>>>>>> c36b7af5857c65c89d0b715ac83b2f669d1126e1
     cv2.imshow('Video', frame)
     #how to escape
     key = cv2.waitKey(1)
