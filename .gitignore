@@ -1,2 +1,16 @@
 .vs/
 .vscode/
+.\app\py\process.py
+.\app\py\process.py
+.\app\qml\camera_fails.qml
+.\app\qml\extra.qml
+.\app\qml\test.qml
+.\facialRec\eye_testing_fail.py
+.\facialRec\test.py
+.\facialRec\faces\austin.jpg
+.\facialRec\faces\drew.jpg
+.\facialRec\faces\kadan.jpg
+.\facialRec\faces\katie.jpg
+.\facialRec\faces\nick.jpg
+.\facialRec\faces\nimo.jpg
+.\facialRec\faces\sydney.jpg
