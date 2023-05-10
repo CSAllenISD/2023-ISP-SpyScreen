@@ -7,10 +7,12 @@ Item {
     id: home
     visible: true
 
+    //homepage
     Rectangle {
         anchors.fill: parent
         color: "#2596be"  
 
+        //main stuff
         Image {
             id: logo
             width: parent.width / 4
@@ -19,7 +21,6 @@ Item {
             source: "../images/logo.png"
             fillMode: Image.PreserveAspectFit
         }
-
         Text {
             text: qsTr("WELCOME TO <br>SPY SCREEN")
             color: "white"
@@ -29,6 +30,7 @@ Item {
             x: parent.width / 25 + parent.width / 4; y: parent.height / 20
         }
 
+        // for stackview
         ListModel {
             id: listModel
             ListElement {name: qsTr("About"); page: "aboutUs.qml"}
@@ -36,6 +38,7 @@ Item {
             ListElement {name: qsTr("Settings"); page: "settings.qml"}
         }
 
+        // gives format for all three buttons on homepage
         Component {
             id: buttonDelegate
             Item {

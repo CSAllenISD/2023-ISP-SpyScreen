@@ -27,7 +27,8 @@ Item {
 					fillMode: Image.PreserveAspectFit
 				}
 			}
-				
+			
+			//mouse events for button (where python would go)
 			text: "nuke"
 			MouseArea {
 				anchors.fill: parent
@@ -55,6 +56,7 @@ Item {
 			}
 		}
 
+		//code for popup
 		Popup {
 			id: popup
 			width: screen.desktopAvailableWidth

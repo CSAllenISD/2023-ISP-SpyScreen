@@ -9,6 +9,7 @@ Item {
         anchors.fill: parent
         color: "#2596be"
 
+        //about us box
         Rectangle {
             width: parent.width * 5 / 6 + 20
             height: aboutText.contentHeight + 15

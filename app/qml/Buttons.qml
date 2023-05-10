@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import QtQuick.Window
 
+// establishes back button
 Item {
     component BackButton: RoundButton {
         property alias label: text.text

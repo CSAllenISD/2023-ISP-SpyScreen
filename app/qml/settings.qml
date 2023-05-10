@@ -14,6 +14,7 @@ Item {
             ListElement {name: qsTr("Log Out"); page: "login.qml"}
         }
 
+        //logout button
         Component {
             id: buttonDelegate
             Item {
@@ -45,6 +46,7 @@ Item {
             }
         }
         
+
         Rectangle {
             height: parent.height / 2
             width: height

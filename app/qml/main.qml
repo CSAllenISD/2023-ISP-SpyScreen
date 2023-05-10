@@ -2,6 +2,8 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import QtQuick.Window
+
+//establishes stackview and the window
 ApplicationWindow {
 	visible: true
    	title: "Spy Screen"
